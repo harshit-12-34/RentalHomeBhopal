@@ -810,10 +810,15 @@
 <!-- ===================== MODAL CONTAINER ===================== -->
 <div id="modal-root"></div>
 <div id="toast-root"></div>
-
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBX_HwY7RwF5AHzVUTxixiNLgJd50rlRX0",
@@ -830,6 +835,12 @@
   const db = getFirestore(app);
 
   window.firebaseDB = db;
+
+  window.firebaseFns = {
+    collection,
+    addDoc,
+    getDocs
+  };
 
   console.log("Firebase Connected Successfully");
 </script>

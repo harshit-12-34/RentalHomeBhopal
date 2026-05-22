@@ -811,6 +811,29 @@
 <div id="modal-root"></div>
 <div id="toast-root"></div>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBX_HwY7RwF5AHzVUTxixiNLgJd50rlRX0",
+    authDomain: "rentalhomebhopal-aa580.firebaseapp.com",
+    projectId: "rentalhomebhopal-aa580",
+    storageBucket: "rentalhomebhopal-aa580.firebasestorage.app",
+    messagingSenderId: "524678243376",
+    appId: "1:524678243376:web:15c5a88e566abde405f9f5",
+    measurementId: "G-5XCLHS52BX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
+  window.firebaseDB = db;
+
+  console.log("Firebase Connected Successfully");
+</script>
+
 <script>
 /* ==========================================================
    CONFIG

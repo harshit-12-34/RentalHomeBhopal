@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RentalHome Bhopal — Find your perfect home, directly from owners</title>
+<meta name="description" content="Bhopal's honest rental platform. PG, flats, rooms, hostels across Saket Nagar, Shakti Nagar, Arera Colony and more. No brokerage." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf8f3;
+    --bg-2: #f0e9dc;
+    --bg-3: #e8dfcb;
+    --ink: #1c1814;
+    --ink-soft: #4a4136;
+    --muted: #8a7e6c;
+    --accent: #b8421a;
+    --accent-2: #ea580c;
+    --accent-3: #fb923c;
+    --accent-soft: #fed7aa;
+    --accent-glow: #fff7ed;
+    --green: #15803d;
+    --green-soft: #dcfce7;
+    --red: #b91c1c;
+    --red-soft: #fee2e2;
+    --line: #e7dccb;
+    --line-strong: #d4c6ab;
+    --card: #ffffff;
+    --shadow-xs: 0 1px 2px rgba(28,24,20,.05);
+    --shadow-sm: 0 2px 6px rgba(28,24,20,.06);
+    --shadow-md: 0 12px 28px rgba(28,24,20,.10);
+    --shadow-lg: 0 28px 56px rgba(28,24,20,.14);
+    --shadow-glow: 0 12px 40px rgba(184,66,26,.18);
+    --radius: 14px;
+    --radius-lg: 20px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(254,215,170,.35) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(254,215,170,.2) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Fraunces', serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.12; margin: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+  input, select, textarea { font-family: inherit; font-size: 15px; color: var(--ink); }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,248,243,.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700; font-size: 22px;
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+  }
+  .logo-mark {
+    width: 38px; height: 38px;
+    background: var(--ink);
+    border-radius: 10px 10px 10px 3px;
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: white;
+  }
+  .logo-mark svg { width: 22px; height: 22px; }
+  .logo-mark::after {
+    content: ''; position: absolute;
+    width: 9px; height: 9px;
+    background: var(--accent-2);
+    border-radius: 50%; top: -3px; right: -3px;
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+  .logo-text { line-height: 1; }
+  .logo-text small {
+    font-family: 'Manrope', sans-serif; font-weight: 600; color: var(--muted);
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    display: block; margin-top: 3px;
+  }
+
+  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-link {
+    background: none; border: none; padding: 9px 14px;
+    color: var(--ink-soft); font-weight: 600; font-size: 14px;
+    border-radius: 8px; transition: all .2s;
+  }
+  .nav-link:hover { background: var(--bg-2); color: var(--ink); }
+  .nav-link.active { color: var(--accent); background: var(--accent-glow); }
+
+  .btn {
+    border: none; padding: 11px 20px;
+    border-radius: 10px; font-weight: 600; font-size: 14px;
+    transition: all .2s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--ink); color: white; }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+  .btn-secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: white; }
+  .btn-accent { background: var(--accent); color: white; }
+  .btn-accent:hover { background: var(--accent-2); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+  .btn-ghost { background: var(--bg-2); color: var(--ink); }
+  .btn-ghost:hover { background: var(--bg-3); }
+  .btn-danger { background: var(--red); color: white; }
+  .btn-success { background: var(--green); color: white; }
+  .btn-block { width: 100%; justify-content: center; padding: 13px; }
+  .btn-lg { padding: 14px 24px; font-size: 15px; }
+  .btn-sm { padding: 7px 12px; font-size: 13px; }
+
+  .user-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 5px 12px 5px 5px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    box-shadow: var(--shadow-xs);
+  }
+  .avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px;
+  }
+  .role-pill {
+    font-size: 10px; padding: 2px 8px;
+    background: var(--bg-2); color: var(--ink-soft);
+    border-radius: 100px; text-transform: uppercase; letter-spacing: .06em; font-weight: 700;
+  }
+  .role-pill.admin { background: var(--ink); color: white; }
+  .chip-action {
+    border: none; background: none; padding: 4px 6px;
+    color: var(--muted); font-size: 13px; cursor: pointer;
+  }
+  .chip-action:hover { color: var(--red); }
+
+  /* ===== HERO ===== */
+  .hero {
+    max-width: 1280px; margin: 0 auto;
+    padding: 60px 28px 40px;
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-glow); color: var(--accent);
+    padding: 7px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .hero-eyebrow .dot { width: 7px; height: 7px; background: var(--accent-2); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: .4 } }
+
+  .hero h1 {
+    font-size: clamp(42px, 6.5vw, 72px);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--accent);
+    font-weight: 500;
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: ''; position: absolute;
+    left: 0; right: 0; bottom: 4px;
+    height: 8px; background: var(--accent-soft);
+    z-index: -1; border-radius: 8px;
+  }
+  .hero p {
+    font-size: 18px; color: var(--ink-soft); max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  .hero-search {
+    margin-top: 32px; padding: 12px;
+    background: var(--card); border-radius: 14px;
+    box-shadow: var(--shadow-md);
+    display: flex; gap: 8px;
+    border: 1px solid var(--line);
+  }
+  .hero-search select, .hero-search input {
+    flex: 1; border: none; padding: 11px 14px;
+    background: var(--bg); border-radius: 10px; font-size: 14px;
+  }
+  .hero-search select:focus, .hero-search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .hero-stats { display: flex; gap: 36px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .stat strong { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600; display: block; line-height: 1; }
+  .stat span { font-size: 13px; color: var(--muted); margin-top: 4px; display: block; }
+
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    border-radius: 24px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 25% 30%, rgba(249,115,22,.55), transparent 55%),
+      radial-gradient(circle at 80% 75%, rgba(184,66,26,.45), transparent 50%),
+      linear-gradient(135deg, var(--accent-soft), var(--bg-2));
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><path d='M0 40 L40 0 L80 40 L40 80 Z' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='1'/></svg>");
+    background-size: 80px;
+    opacity: .8;
+  }
+  .hero-card {
+    position: absolute;
+    background: white; border-radius: 14px;
+    padding: 14px 16px; box-shadow: var(--shadow-md);
+    display: flex; gap: 12px; align-items: center;
+    font-size: 13px;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
+  .hero-card-1 { top: 32px; left: 28px; animation-delay: 0s; }
+  .hero-card-2 { bottom: 68px; right: 28px; animation-delay: 2s; }
+  .hero-card-3 { top: 50%; left: 50%; transform: translate(-50%,-50%); padding: 22px 26px; animation: none; }
+  .hero-card-3 .price { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--accent); margin: 2px 0; }
+  .hero-card-img { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+
+  /* ===== SECTIONS ===== */
+  .section { max-width: 1280px; margin: 0 auto; padding: 50px 28px; }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: end;
+    margin-bottom: 32px; gap: 24px; flex-wrap: wrap;
+  }
+  .section-head h2 { font-size: clamp(30px, 4.2vw, 44px); }
+  .section-head p { color: var(--muted); margin: 8px 0 0; font-size: 15px; }
+  .section-eyebrow {
+    font-size: 12px; font-weight: 700; color: var(--accent);
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px;
+  }
+
+  /* ===== LOCALITY GRID ===== */
+  .locality-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 14px;
+  }
+  .locality-tile {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 22px;
+    cursor: pointer; transition: all .25s;
+    display: flex; flex-direction: column; gap: 4px;
+    position: relative; overflow: hidden;
+  }
+  .locality-tile::before {
+    content: ''; position: absolute;
+    top: -20px; right: -20px; width: 60px; height: 60px;
+    background: var(--accent-soft); border-radius: 50%;
+    opacity: 0; transition: all .3s;
+  }
+  .locality-tile:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .locality-tile:hover::before { opacity: .5; }
+  .locality-tile strong { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; position: relative; }
+  .locality-tile span { font-size: 13px; color: var(--muted); position: relative; }
+
+  /* ===== FILTER BAR ===== */
+  .filter-bar {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 20px; margin-bottom: 28px;
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+    gap: 12px; align-items: end;
+    box-shadow: var(--shadow-sm);
+  }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: 11px; font-weight: 700;
+    color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
+  }
+  .field input, .field select, .field textarea {
+    padding: 11px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    transition: border-color .15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--accent);
+  }
+  .field textarea { resize: vertical; min-height: 90px; }
+
+  /* ===== PROPERTY GRID ===== */
+  .results-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px; color: var(--muted); font-size: 14px;
+  }
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+  }
+  .prop-card {
+    background: var(--card); border-radius: var(--radius-lg);
+    overflow: hidden; border: 1px solid var(--line);
+    transition: all .25s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  .prop-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+  .prop-card.unavailable { opacity: .65; }
+  .prop-card.unavailable:hover { transform: none; box-shadow: var(--shadow-sm); }
+
+  .prop-img {
+    aspect-ratio: 16/10; position: relative;
+    background: var(--bg-2);
+    background-size: cover; background-position: center;
+    overflow: hidden;
+  }
+  .prop-img-placeholder {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px;
+  }
+  .prop-img-placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><path d='M0 40 L40 0 L80 40 L40 80 Z' fill='none' stroke='rgba(255,255,255,0.2)' stroke-width='1'/></svg>");
+    background-size: 80px;
+  }
+  .prop-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: rgba(28,24,20,.85); color: white;
+    padding: 5px 11px; border-radius: 100px;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(8px);
+  }
+  .prop-fav {
+    position: absolute; top: 14px; right: 14px;
+    background: white; width: 36px; height: 36px;
+    border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+    box-shadow: var(--shadow-sm);
+  }
+  .prop-unavailable-overlay {
+    position: absolute; inset: 0;
+    background: rgba(28,24,20,.55);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2; backdrop-filter: blur(2px);
+  }
+  .prop-unavailable-overlay span {
+    background: var(--red); color: white;
+    padding: 8px 18px; border-radius: 100px;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    box-shadow: var(--shadow-md);
+  }
+  .prop-body { padding: 20px; }
+  .prop-locality {
+    font-size: 11px; color: var(--accent);
+    text-transform: uppercase; letter-spacing: .1em;
+    font-weight: 700; margin-bottom: 6px;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .prop-title {
+    font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600;
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .prop-meta {
+    display: flex; gap: 14px; color: var(--ink-soft);
+    font-size: 13px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .prop-meta span { display: inline-flex; align-items: center; gap: 5px; }
+  .prop-price {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px; border-top: 1px solid var(--line);
+  }
+  .prop-price strong {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600;
+  }
+  .prop-price strong span { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .badge {
+    font-size: 11px; padding: 4px 10px; border-radius: 100px;
+    background: var(--bg-2); color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .badge.green { background: var(--green-soft); color: var(--green); }
+  .badge.orange { background: var(--accent-soft); color: var(--accent); }
+  .badge.red { background: var(--red-soft); color: var(--red); }
+
+  /* ===== MODAL ===== */
+  .modal-bg {
+    position: fixed; inset: 0;
+    background: rgba(20,14,4,.6);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    animation: fadeIn .2s;
+  }
+  @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+  .modal {
+    background: var(--card); border-radius: 20px;
+    width: 100%; max-width: 480px;
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp .25s;
+    max-height: 92vh; overflow-y: auto;
+  }
+  .modal.wide { max-width: 820px; }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+  .modal-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 18px;
+  }
+  .modal-head h2 { font-size: 26px; }
+  .close-x {
+    background: var(--bg-2); border: none;
+    width: 36px; height: 36px; border-radius: 50%;
+    font-size: 18px; color: var(--ink);
+  }
+  .close-x:hover { background: var(--line); }
+
+  .tabs {
+    display: flex; background: var(--bg-2); padding: 5px;
+    border-radius: 12px; margin-bottom: 22px;
+  }
+  .tab {
+    flex: 1; padding: 12px; text-align: center;
+    background: none; border: none;
+    border-radius: 8px; font-weight: 600; font-size: 14px;
+    color: var(--ink-soft); transition: all .2s;
+  }
+  .tab.active { background: var(--card); color: var(--ink); box-shadow: var(--shadow-xs); }
+
+  .phone-input { display: flex; gap: 8px; }
+  .phone-input .code {
+    padding: 11px 14px; border: 1.5px solid var(--line);
+    border-radius: 10px; background: var(--bg-2);
+    font-weight: 700; font-size: 15px;
+  }
+  .phone-input input { flex: 1; }
+
+  .otp-row { display: flex; gap: 10px; justify-content: center; margin: 22px 0; }
+  .otp-row input {
+    width: 50px; height: 56px; text-align: center;
+    font-size: 22px; font-weight: 600;
+    border: 1.5px solid var(--line); border-radius: 10px;
+  }
+  .otp-hint {
+    background: var(--accent-glow); border: 1px dashed var(--accent);
+    border-radius: 10px;
+    padding: 14px; font-size: 13px; color: var(--accent);
+    text-align: center; margin-bottom: 16px;
+  }
+
+  /* ===== PROPERTY DETAIL ===== */
+  .detail-back {
+    color: var(--muted); font-size: 14px;
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-bottom: 18px; font-weight: 600;
+  }
+  .detail-back:hover { color: var(--ink); }
+  .detail-gallery {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 8px; height: 480px; border-radius: 18px 18px 0 0; overflow: hidden;
+  }
+  .detail-gallery .gal-main { grid-row: 1/3; }
+  .detail-gallery .gal-img {
+    background-size: cover; background-position: center;
+    position: relative; background-color: var(--bg-2);
+  }
+  .detail-gallery .gal-img.placeholder {
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-2));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .detail-gallery .gal-img.video::after {
+    content: '▶'; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 56px; height: 56px;
+    background: rgba(0,0,0,.7); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; padding-left: 4px;
+  }
+  .detail-body {
+    padding: 32px 36px 36px;
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 36px;
+  }
+  .detail-main h2 { font-size: 32px; margin-bottom: 8px; }
+  .detail-main .loc { color: var(--accent); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+  .detail-info-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 16px; margin: 28px 0; padding: 22px;
+    background: var(--bg-2); border-radius: 14px;
+  }
+  .info-cell label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px; font-weight: 700; }
+  .info-cell strong { font-size: 16px; }
+  .detail-side {
+    background: var(--bg-2); padding: 26px;
+    border-radius: 14px; height: fit-content;
+    position: sticky; top: 90px;
+  }
+  .detail-side .price-big {
+    font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700;
+    color: var(--accent); margin-bottom: 4px;
+  }
+
+  /* ===== DASHBOARD ===== */
+  .dash-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 28px; flex-wrap: wrap; gap: 16px;
+  }
+  .dash-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
+  .dash-stat {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px;
+  }
+  .dash-stat span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+  .dash-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 34px; font-weight: 600; margin-top: 6px; line-height: 1; }
+
+  /* ===== HOW IT WORKS ===== */
+  .steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .step {
+    background: var(--card); border: 1px solid var(--line);
+    padding: 28px; border-radius: var(--radius-lg);
+    position: relative;
+  }
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--ink); color: white;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .step h3 { font-size: 22px; margin-bottom: 8px; }
+  .step p { color: var(--ink-soft); font-size: 14px; line-height: 1.6; }
+
+  /* ===== CTA SECTIONS ===== */
+  .cta-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+  }
+  .cta-card {
+    border-radius: var(--radius-lg); padding: 40px;
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  .cta-card.dark { background: var(--ink); }
+  .cta-card.accent { background: var(--accent); }
+  .cta-card::before {
+    content: ''; position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,.06);
+    border-radius: 50%;
+  }
+  .cta-card h3 { font-size: 28px; margin-bottom: 12px; position: relative; }
+  .cta-card p { opacity: .85; margin-bottom: 22px; position: relative; font-size: 15px; }
+  .cta-card .btn { position: relative; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .testimonial {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 28px;
+  }
+  .testimonial p { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--ink-soft); margin-bottom: 18px; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-author strong { display: block; font-size: 14px; }
+  .testimonial-author span { font-size: 12px; color: var(--muted); }
+  .stars { color: var(--accent-2); letter-spacing: 2px; margin-bottom: 12px; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: #14110d; color: #c5beb1;
+    margin-top: 80px;
+    padding: 70px 28px 30px;
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 50px;
+  }
+  .footer h4 { color: white; margin-bottom: 16px; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .footer a, .footer p { color: #a59f93; font-size: 14px; display: block; padding: 4px 0; }
+  .footer a:hover { color: white; }
+  .footer .logo { color: white; margin-bottom: 14px; }
+  .footer .logo small { color: #a59f93; }
+  .footer .logo-mark { background: var(--accent); }
+  .footer-bottom {
+    max-width: 1280px; margin: 50px auto 0;
+    padding-top: 26px; border-top: 1px solid #2a2520;
+    color: #6e6759; font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  /* ===== EMPTY ===== */
+  .empty {
+    text-align: center; padding: 70px 20px;
+    color: var(--muted);
+  }
+  .empty .icon {
+    width: 80px; height: 80px;
+    background: var(--bg-2); border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 36px; margin-bottom: 16px;
+  }
+  .empty h3 { color: var(--ink); }
+
+  /* ===== UTIL ===== */
+  .hidden { display: none !important; }
+  .check-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 14px; cursor: pointer; }
+  .check-row input { accent-color: var(--accent); width: 17px; height: 17px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .upload-zone {
+    border: 2px dashed var(--line-strong); border-radius: 12px;
+    padding: 22px; text-align: center; color: var(--muted);
+    font-size: 14px; cursor: pointer;
+    transition: all .2s; background: var(--bg);
+  }
+  .upload-zone:hover { border-color: var(--accent); background: var(--accent-glow); color: var(--accent); }
+  .upload-zone strong { display: block; color: var(--ink); margin-bottom: 4px; font-size: 15px; }
+
+  .img-preview-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 8px; margin-top: 12px;
+  }
+  .img-preview {
+    aspect-ratio: 1; border-radius: 10px;
+    background-size: cover; background-position: center;
+    background-color: var(--bg-2);
+    position: relative; border: 1px solid var(--line);
+  }
+  .img-preview .remove {
+    position: absolute; top: 4px; right: 4px;
+    background: rgba(0,0,0,.7); color: white;
+    width: 22px; height: 22px; border-radius: 50%;
+    border: none; cursor: pointer; font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .toast {
+    position: fixed; bottom: 28px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink); color: white;
+    padding: 13px 24px; border-radius: 100px;
+    font-size: 14px; font-weight: 500; z-index: 200;
+    animation: slideUp .2s;
+    box-shadow: var(--shadow-lg);
+  }
+  .toast.success { background: var(--green); }
+  .toast.error { background: var(--red); }
+
+  /* ===== TABLE (admin) ===== */
+  .admin-table {
+    background: var(--card); border-radius: var(--radius-lg);
+    border: 1px solid var(--line); overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .admin-table table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .admin-table th {
+    text-align: left; padding: 14px 18px;
+    background: var(--bg-2); color: var(--muted);
+    font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
+    border-bottom: 1px solid var(--line);
+  }
+  .admin-table td { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .admin-table tr:last-child td { border-bottom: none; }
+  .admin-table tr:hover { background: var(--bg); }
+
+  /* ===== AVAILABILITY TOGGLE ===== */
+  .availability-toggle {
+    display: flex; gap: 6px; padding: 4px;
+    background: var(--bg-2); border-radius: 100px;
+    margin-top: 12px;
+  }
+  .availability-toggle button {
+    flex: 1; padding: 7px 12px; border-radius: 100px;
+    border: none; background: none;
+    font-size: 12px; font-weight: 700;
+    color: var(--muted); cursor: pointer;
+    transition: all .2s;
+  }
+  .availability-toggle button.active.green { background: var(--green); color: white; }
+  .availability-toggle button.active.red { background: var(--red); color: white; }
+
+  .status-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    display: inline-block; vertical-align: middle; margin-right: 6px;
+  }
+  .status-dot.green { background: var(--green); box-shadow: 0 0 0 3px var(--green-soft); }
+  .status-dot.red { background: var(--red); box-shadow: 0 0 0 3px var(--red-soft); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; padding: 40px 22px; gap: 32px; }
+    .hero-visual { display: none; }
+    .detail-gallery { grid-template-columns: 1fr 1fr; height: 320px; }
+    .detail-gallery .gal-main { grid-row: 1; grid-column: 1/3; }
+    .detail-body { grid-template-columns: 1fr; padding: 24px; }
+    .filter-bar { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .nav-inner { padding: 14px 20px; }
+    .nav-link { display: none; }
+    .section { padding: 32px 22px; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .testimonials { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .hero-stats .stat strong { font-size: 24px; }
+  }
+  @media (max-width: 540px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .filter-bar { grid-template-columns: 1fr; }
+    .detail-info-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 42px; }
+    .img-preview-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo" onclick="route('home')">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4l9 8"/><path d="M5 10v10h14V10"/></svg>
+      </span>
+      <div class="logo-text">
+        RentalHome
+        <small>Bhopal</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link" data-page="home" onclick="route('home')">Home</button>
+      <button class="nav-link" data-page="browse" onclick="route('browse')">Browse</button>
+      <button class="nav-link" id="nav-list" onclick="openListProperty()">List Property</button>
+      <button class="nav-link" id="nav-dashboard" data-page="dashboard" onclick="route('dashboard')">My Listings</button>
+      <button class="nav-link" id="nav-admin" data-page="admin" onclick="route('admin')">Admin</button>
+    </div>
+    <div id="auth-area"></div>
+  </div>
+</nav>
+
+<!-- ===================== PAGES ===================== -->
+<main id="app"></main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 4l9 8"/><path d="M5 10v10h14V10"/></svg>
+        </span>
+        <div class="logo-text">RentalHome <small>Bhopal</small></div>
+      </div>
+      <p style="max-width: 320px">The honest way to rent in Bhopal. Verified listings, direct contact with owners, zero brokerage. Built in Bhopal, for Bhopal.</p>
+    </div>
+    <div>
+      <h4>Discover</h4>
+      <a href="#" onclick="route('browse'); return false;">Browse Properties</a>
+      <a href="#" onclick="filterByLocality('Saket Nagar'); return false;">Saket Nagar</a>
+      <a href="#" onclick="filterByLocality('Shakti Nagar'); return false;">Shakti Nagar</a>
+      <a href="#" onclick="filterByLocality('Arera Colony'); return false;">Arera Colony</a>
+      <a href="#" onclick="filterByLocality('Kolar Road'); return false;">Kolar Road</a>
+    </div>
+    <div>
+      <h4>For Owners</h4>
+      <a href="#" onclick="openListProperty(); return false;">List Your Property</a>
+      <a href="#" onclick="route('dashboard'); return false;">Manage Listings</a>
+      <p style="color: var(--accent-3);">100% Free Forever</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>📞 +91 9685711499</p>
+      <p>✉ rentalhomebhopal@gmail.com</p>
+      <p>📍 Saket Nagar, Bhopal — 462024</p>
+      <p style="margin-top: 12px; color: #6e6759; font-size: 12px;">Mon–Sat · 9 AM – 8 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 RentalHome Bhopal · All rights reserved</span>
+    <span>Made with ❤ in Bhopal</span>
+  </div>
+</footer>
+
+<!-- ===================== MODAL CONTAINER ===================== -->
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+
+<script>
+/* ==========================================================
+   CONFIG
+   ========================================================== */
+const ADMIN_PHONE = '9685711499';
+const SITE = {
+  phone: '9685711499',
+  email: 'rentalhomebhopal@gmail.com',
+  address: 'Saket Nagar, Bhopal — 462024'
+};
+
+const LOCALITIES = [
+  'Saket Nagar', 'Shakti Nagar', 'Surendra Palace', 'Bag Sewaniya',
+  'Vidhya Nagar', 'Narayan Nagar', 'Amrai', 'Arera Colony',
+  'MP Nagar', 'Habibganj', 'Kolar Road', 'Misrod',
+  'Hoshangabad Road', 'Shahpura', 'Bairagarh', 'TT Nagar'
+];
+
+const PROPERTY_TYPES = ['PG', 'Flat', 'Room', 'Hostel', 'Independent House', 'Apartment', '1RK', '1BHK', '2BHK', '3BHK'];
+const TENANT_TYPES   = ['Bachelors', 'Family', 'Girls Only', 'Boys Only', 'Working Professionals', 'Students', 'Anyone'];
+const RESTRICTIONS   = ['Non-alcoholic', 'Non-smoking', 'Vegetarian only', 'No pets', 'No loud music after 10pm', 'No guests overnight', 'Gate closes by 11pm'];
+const AMENITIES      = ['WiFi', 'AC', 'Geyser', 'Parking', 'Lift', 'Power Backup', 'CCTV', 'Furnished', 'Semi-Furnished', 'Food Included', 'Laundry', 'Housekeeping', 'Gym', 'Balcony'];
+
+const STORAGE_KEY = 'rentalhome_bhopal_v2';
+
+/* ==========================================================
+   SEED DATA
+   ========================================================== */
+function seedData() {
+  return {
+    users: {
+      '9876500001': { phone: '9876500001', name: 'Rajesh Sharma', role: 'owner', createdAt: Date.now() - 90*86400000 },
+      '9876500002': { phone: '9876500002', name: 'Priya Verma', role: 'owner', createdAt: Date.now() - 60*86400000 },
+      '9876500003': { phone: '9876500003', name: 'Mohit Tiwari', role: 'owner', createdAt: Date.now() - 30*86400000 },
+    },
+    properties: [
+      { id: 'p1', ownerPhone: '9876500001', title: '2BHK Furnished near AIIMS Bhopal', type: '2BHK', locality: 'Saket Nagar', address: 'Plot 23, Near AIIMS Gate 2, Saket Nagar', rent: 18000, deposit: 36000, forWhom: ['Family', 'Working Professionals'], restrictions: ['Non-smoking', 'Vegetarian only'], amenities: ['WiFi', 'AC', 'Geyser', 'Parking', 'Furnished', 'Power Backup'], description: 'Spacious 2BHK on the 2nd floor with balcony facing the park. Walking distance to AIIMS, hospitals nearby, autos always available. Society has 24/7 security. Available from 1st of next month.', images: [], video: true, available: true, listedAt: Date.now() - 7*86400000, views: 124 },
+      { id: 'p2', ownerPhone: '9876500001', title: 'Single Room PG for Girls — Meal Included', type: 'PG', locality: 'Shakti Nagar', address: 'Sai Krupa PG, near Shakti Nagar Square', rent: 7500, deposit: 7500, forWhom: ['Girls Only', 'Students'], restrictions: ['Non-alcoholic', 'Non-smoking', 'Vegetarian only', 'Gate closes by 11pm'], amenities: ['WiFi', 'Food Included', 'Geyser', 'Housekeeping', 'CCTV', 'Laundry'], description: 'Safe and homely PG run by a family. Twin-sharing rooms available. Home-cooked vegetarian meals (3 times a day). 24x7 hot water, CCTV in common areas. Suitable for college students and working girls.', images: [], video: false, available: true, listedAt: Date.now() - 3*86400000, views: 312 },
+      { id: 'p3', ownerPhone: '9876500002', title: 'Cozy 1BHK Flat in Arera Colony', type: '1BHK', locality: 'Arera Colony', address: 'E-7, Arera Colony, near 10 Number Market', rent: 14000, deposit: 28000, forWhom: ['Bachelors', 'Working Professionals'], restrictions: ['Non-smoking'], amenities: ['WiFi', 'AC', 'Geyser', 'Parking', 'Lift', 'Power Backup', 'Semi-Furnished'], description: 'Well-ventilated flat in a quiet residential pocket of Arera Colony. Market within 5 min walk, MP Nagar 10 min by auto. Modular kitchen, comes with bed, wardrobe and a study table.', images: [], video: true, available: true, listedAt: Date.now() - 14*86400000, views: 89 },
+      { id: 'p4', ownerPhone: '9876500002', title: 'Bachelors Hostel — Boys, MP Nagar', type: 'Hostel', locality: 'MP Nagar', address: 'Zone 1, Behind DB Mall, MP Nagar', rent: 6500, deposit: 6500, forWhom: ['Boys Only', 'Students'], restrictions: ['Non-alcoholic', 'No loud music after 10pm', 'No guests overnight'], amenities: ['WiFi', 'Food Included', 'Laundry', 'CCTV', 'Power Backup'], description: 'Right in the heart of MP Nagar coaching hub. Walk to most IIT/NEET coaching institutes. Triple sharing rooms, mess on ground floor, study room with AC. Weekly room cleaning included.', images: [], video: false, available: true, listedAt: Date.now() - 2*86400000, views: 245 },
+      { id: 'p5', ownerPhone: '9876500003', title: '3BHK Independent House — Family Only', type: 'Independent House', locality: 'Kolar Road', address: 'Sarvadharm B Sector, Kolar Road', rent: 22000, deposit: 60000, forWhom: ['Family'], restrictions: ['Non-smoking', 'No pets'], amenities: ['Parking', 'Power Backup', 'CCTV', 'Balcony', 'Geyser'], description: 'Independent ground floor of a duplex. 3 bedrooms, 2 washrooms, big living room and a small garden in front. Quiet neighbourhood, ideal for a family. Pure veg society. School and hospital within 1 km.', images: [], video: true, available: false, listedAt: Date.now() - 21*86400000, views: 156 },
+      { id: 'p6', ownerPhone: '9876500003', title: 'Room in 2BHK for Working Professional', type: 'Room', locality: 'Bag Sewaniya', address: 'Sector C, Bag Sewaniya', rent: 5500, deposit: 11000, forWhom: ['Bachelors', 'Working Professionals'], restrictions: ['Non-smoking', 'Non-alcoholic'], amenities: ['WiFi', 'AC', 'Geyser', 'Furnished'], description: 'Single furnished room with attached washroom in a shared 2BHK. Existing flatmate is a software engineer (very chill). Kitchen is shared, washroom is yours. Bag Sewaniya station 10 min away.', images: [], video: false, available: true, listedAt: Date.now() - 5*86400000, views: 67 },
+      { id: 'p7', ownerPhone: '9876500001', title: 'Newly Built Flat — Surendra Palace', type: 'Flat', locality: 'Surendra Palace', address: 'Surendra Palace Phase 2, Bhopal', rent: 11000, deposit: 22000, forWhom: ['Family', 'Bachelors'], restrictions: ['Non-smoking'], amenities: ['Lift', 'Parking', 'Power Backup', 'CCTV', 'Balcony'], description: 'Brand new construction, you would be the first tenant. 2 bedrooms with attached washrooms, modular kitchen, large balcony. Society has gym and clubhouse. Ready to move in.', images: [], video: true, available: true, listedAt: Date.now() - 1*86400000, views: 41 },
+      { id: 'p8', ownerPhone: '9876500002', title: 'Girls PG with AC Rooms — Vidhya Nagar', type: 'PG', locality: 'Vidhya Nagar', address: 'Vidhya Nagar Main Road, near NIT Bhopal', rent: 9000, deposit: 9000, forWhom: ['Girls Only', 'Students', 'Working Professionals'], restrictions: ['Non-alcoholic', 'Non-smoking', 'Gate closes by 11pm'], amenities: ['WiFi', 'AC', 'Food Included', 'Geyser', 'Housekeeping', 'CCTV', 'Laundry', 'Power Backup'], description: 'Premium PG with private AC rooms, attached washrooms, and homely environment. Mess provides North & South Indian rotational menu. Walking distance to NIT and Manit. Female caretaker stays on premises.', images: [], video: true, available: true, listedAt: Date.now() - 10*86400000, views: 198 },
+      { id: 'p9', ownerPhone: '9876500003', title: '1RK for Bachelors — Narayan Nagar', type: '1RK', locality: 'Narayan Nagar', address: 'Narayan Nagar Square', rent: 4500, deposit: 9000, forWhom: ['Bachelors', 'Boys Only'], restrictions: ['Non-alcoholic'], amenities: ['Geyser', 'Parking'], description: 'Affordable single room with kitchenette and attached washroom. Perfect for someone working in nearby industrial area. Bike parking available. Water 24x7.', images: [], video: false, available: true, listedAt: Date.now() - 8*86400000, views: 73 },
+      { id: 'p10', ownerPhone: '9876500001', title: '2BHK Semi-Furnished — Amrai', type: '2BHK', locality: 'Amrai', address: 'Amrai Colony, near community park', rent: 13500, deposit: 27000, forWhom: ['Family', 'Working Professionals'], restrictions: ['Non-smoking', 'No pets'], amenities: ['Semi-Furnished', 'Parking', 'Power Backup', 'Geyser', 'Balcony'], description: 'Quiet, green colony with friendly neighbours. Flat on first floor with cross ventilation. Comes with fans, lights, modular kitchen, and beds. School and dispensary nearby.', images: [], video: false, available: true, listedAt: Date.now() - 12*86400000, views: 102 },
+    ],
+    favorites: {},
+    visits: 0,
+    session: null
+  };
+}
+
+function loadDB() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const db = JSON.parse(stored);
+      // backward compatibility
+      db.properties.forEach(p => {
+        if (p.available === undefined) p.available = true;
+        if (!p.images) p.images = [];
+      });
+      if (db.visits === undefined) db.visits = 0;
+      return db;
+    }
+  } catch(e) {}
+  const fresh = seedData();
+  saveDB(fresh);
+  return fresh;
+}
+function saveDB(db) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(db)); }
+  catch(e) { toast('Storage full — try removing some images', 'error'); }
+}
+
+let DB = loadDB();
+DB.visits = (DB.visits || 0) + 1;
+saveDB(DB);
+
+let STATE = {
+  page: 'home', filter: { locality: '', type: '', forWhom: '', minRent: '', maxRent: '', search: '', availability: 'available' },
+  modal: null, pendingPhone: null, pendingRole: null, generatedOtp: null,
+  editingId: null, detailId: null, uploadedImages: []
+};
+
+/* ==========================================================
+   ROUTING
+   ========================================================== */
+function route(page) {
+  if ((page === 'dashboard' || page === 'admin') && !DB.session) { openAuth(); return; }
+  if (page === 'admin' && DB.session !== ADMIN_PHONE) { toast('Admin access only', 'error'); return; }
+  STATE.page = page; STATE.modal = null;
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function render() {
+  renderAuthArea();
+  renderNavState();
+  const app = document.getElementById('app');
+  if (STATE.page === 'home') app.innerHTML = renderHome();
+  else if (STATE.page === 'browse') app.innerHTML = renderBrowse();
+  else if (STATE.page === 'dashboard') app.innerHTML = renderDashboard();
+  else if (STATE.page === 'detail') app.innerHTML = renderDetail();
+  else if (STATE.page === 'admin') app.innerHTML = renderAdmin();
+  renderModal();
+}
+
+function renderAuthArea() {
+  const el = document.getElementById('auth-area');
+  if (DB.session) {
+    const u = DB.users[DB.session];
+    const initial = (u.name || 'U').charAt(0).toUpperCase();
+    const isAdmin = DB.session === ADMIN_PHONE;
+    el.innerHTML = `
+      <div class="user-chip">
+        <span class="avatar">${initial}</span>
+        <span>${u.name}</span>
+        <span class="role-pill ${isAdmin?'admin':''}">${isAdmin ? 'Admin' : u.role}</span>
+        <button onclick="logout()" class="chip-action" title="Logout">⎋</button>
+      </div>`;
+  } else {
+    el.innerHTML = `<button class="btn btn-accent" onclick="openAuth()">Login / Sign Up</button>`;
+  }
+}
+
+function renderNavState() {
+  document.querySelectorAll('.nav-link').forEach(b => {
+    b.classList.toggle('active', b.dataset.page === STATE.page);
+  });
+  const navList = document.getElementById('nav-list');
+  const navDash = document.getElementById('nav-dashboard');
+  const navAdmin = document.getElementById('nav-admin');
+  const isOwner = DB.session && DB.users[DB.session]?.role === 'owner';
+  const isAdmin = DB.session === ADMIN_PHONE;
+  navList.style.display = isOwner ? '' : 'none';
+  navDash.style.display = isOwner ? '' : 'none';
+  navAdmin.style.display = isAdmin ? '' : 'none';
+}
+
+/* ==========================================================
+   HOME PAGE
+   ========================================================== */
+function renderHome() {
+  const available = DB.properties.filter(p => p.available);
+  return `
+  <section class="hero">
+    <div>
+      <div class="hero-eyebrow"><span class="dot"></span> Now live in Bhopal</div>
+      <h1>Find your <em>next home</em><br/>in Bhopal.</h1>
+      <p>Skip the brokers. Talk directly to property owners. Verified PGs, flats, rooms and hostels across every locality in Bhopal — Saket Nagar to Kolar Road.</p>
+      <div class="hero-cta">
+        <button class="btn btn-accent btn-lg" onclick="route('browse')">Browse ${available.length} Properties →</button>
+        <button class="btn btn-secondary btn-lg" onclick="openListProperty()">List Your Property</button>
+      </div>
+      <div class="hero-search">
+        <select id="hero-locality">
+          <option value="">📍 Any locality</option>
+          ${LOCALITIES.map(l => `<option>${l}</option>`).join('')}
+        </select>
+        <select id="hero-type">
+          <option value="">🏠 Any type</option>
+          ${PROPERTY_TYPES.map(t => `<option>${t}</option>`).join('')}
+        </select>
+        <button class="btn btn-primary" onclick="quickSearch()">Search</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>${available.length}+</strong><span>Active listings</span></div>
+        <div class="stat"><strong>16</strong><span>Localities</span></div>
+        <div class="stat"><strong>₹0</strong><span>Brokerage</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card hero-card-1">
+        <div class="hero-card-img">🏠</div>
+        <div><strong>2BHK · Saket Nagar</strong><div style="color:var(--muted); font-size:12px;">Family · Furnished</div></div>
+      </div>
+      <div class="hero-card hero-card-3">
+        <div style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; font-weight: 700;">Average rent</div>
+        <div class="price">₹11,200</div>
+        <div style="font-size:11px; color:var(--muted);">across Bhopal</div>
+      </div>
+      <div class="hero-card hero-card-2">
+        <div class="hero-card-img">🎓</div>
+        <div><strong>Girls PG · Vidhya Nagar</strong><div style="color:var(--muted); font-size:12px;">Meals included</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Where to live</div>
+        <h2>Browse by locality</h2>
+        <p>Tap a locality to see all listings there.</p>
+      </div>
+    </div>
+    <div class="locality-grid">
+      ${LOCALITIES.map(loc => {
+        const count = DB.properties.filter(p => p.locality === loc && p.available).length;
+        return `<div class="locality-tile" onclick="filterByLocality('${loc}')">
+          <strong>${loc}</strong>
+          <span>${count} ${count===1?'property':'properties'}</span>
+        </div>`;
+      }).join('')}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Just listed</div>
+        <h2>Freshly listed homes</h2>
+        <p>The newest properties added by owners across Bhopal.</p>
+      </div>
+      <button class="btn btn-ghost" onclick="route('browse')">View all →</button>
+    </div>
+    <div class="property-grid">
+      ${available.slice().sort((a,b)=>b.listedAt-a.listedAt).slice(0,6).map(propCard).join('')}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head" style="justify-content:center; text-align:center;">
+      <div>
+        <div class="section-eyebrow">Simple process</div>
+        <h2>How it works</h2>
+        <p>Three steps to your next home. No middlemen, no hidden charges.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Sign up in 30 seconds</h3>
+        <p>Just your phone number and an OTP. Choose if you're looking for a place or have one to rent out. No paperwork.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Search or list</h3>
+        <p>Filter by locality, rent, property type and even house rules. Owners list their property with photos and a walk-through video.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Connect directly</h3>
+        <p>See the owner's number, give them a call, visit the place, finalize the deal. Zero commission to us. Zero brokerage to anyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-grid">
+      <div class="cta-card dark">
+        <h3>Looking for a place?</h3>
+        <p>Filter by your locality, rent budget, and house rules. Save your favourites. Contact owners directly.</p>
+        <button class="btn btn-accent" onclick="openAuthAs('finder')">Sign up as Finder</button>
+      </div>
+      <div class="cta-card accent">
+        <h3>Got a property to rent?</h3>
+        <p>List your PG, flat, room or hostel in 5 minutes. Add photos, set your house rules, and we'll send you finders that match.</p>
+        <button class="btn" style="background: white; color: var(--accent);" onclick="openAuthAs('owner')">List your property</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head" style="justify-content:center; text-align:center;">
+      <div>
+        <div class="section-eyebrow">What people say</div>
+        <h2>Trusted by Bhopal renters</h2>
+      </div>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"I found a clean PG near my coaching in MP Nagar within 2 days. Talked directly to the owner aunty, visited the same day. Zero brokerage saved me ₹6000."</p>
+        <div class="testimonial-author">
+          <div class="avatar">A</div>
+          <div><strong>Ananya G.</strong><span>Student, NEET aspirant</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Listed my 2BHK in Saket Nagar on a Sunday evening. Got 4 calls by Monday. Rented out by Wednesday. Couldn't believe it was free."</p>
+        <div class="testimonial-author">
+          <div class="avatar">R</div>
+          <div><strong>Rajesh S.</strong><span>Owner, Saket Nagar</span></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Filter for 'family only, vegetarian' worked exactly. Found a flat in Arera Colony that suited my parents perfectly. Very local, very Bhopali."</p>
+        <div class="testimonial-author">
+          <div class="avatar">P</div>
+          <div><strong>Pratham K.</strong><span>IT Professional</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function quickSearch() {
+  STATE.filter.locality = document.getElementById('hero-locality').value;
+  STATE.filter.type = document.getElementById('hero-type').value;
+  STATE.page = 'browse'; render();
+}
+
+/* ==========================================================
+   BROWSE PAGE
+   ========================================================== */
+function renderBrowse() {
+  const filtered = applyFilters(DB.properties);
+  return `
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">All listings</div>
+        <h2>Find your place in Bhopal</h2>
+        <p>${DB.properties.filter(p=>p.available).length} available listings across ${LOCALITIES.length} localities</p>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <div class="field">
+        <label>Search</label>
+        <input id="f-search" type="text" placeholder="Locality, title, anything..." value="${STATE.filter.search}" oninput="STATE.filter.search=this.value; debouncedRender();" />
+      </div>
+      <div class="field">
+        <label>Locality</label>
+        <select onchange="STATE.filter.locality=this.value; render();">
+          <option value="">All Localities</option>
+          ${LOCALITIES.map(l => `<option ${STATE.filter.locality===l?'selected':''}>${l}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Property Type</label>
+        <select onchange="STATE.filter.type=this.value; render();">
+          <option value="">All Types</option>
+          ${PROPERTY_TYPES.map(t => `<option ${STATE.filter.type===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label>Suitable For</label>
+        <select onchange="STATE.filter.forWhom=this.value; render();">
+          <option value="">Anyone</option>
+          ${TENANT_TYPES.map(t => `<option ${STATE.filter.forWhom===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+      </div>
+      <button class="btn btn-ghost" onclick="resetFilter()">Reset</button>
+    </div>
+
+    <div class="filter-bar" style="grid-template-columns: 1fr 1fr 1fr 1fr; box-shadow: none; background: transparent; border: none; padding: 0 0 18px;">
+      <div class="field">
+        <label>Min Rent (₹)</label>
+        <input type="number" placeholder="0" value="${STATE.filter.minRent}" oninput="STATE.filter.minRent=this.value; debouncedRender();" />
+      </div>
+      <div class="field">
+        <label>Max Rent (₹)</label>
+        <input type="number" placeholder="50000" value="${STATE.filter.maxRent}" oninput="STATE.filter.maxRent=this.value; debouncedRender();" />
+      </div>
+      <div class="field">
+        <label>Show</label>
+        <select onchange="STATE.filter.availability=this.value; render();">
+          <option value="available" ${STATE.filter.availability==='available'?'selected':''}>Available only</option>
+          <option value="all" ${STATE.filter.availability==='all'?'selected':''}>All listings</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="results-meta">
+      <span>Showing <strong style="color: var(--ink);">${filtered.length}</strong> ${filtered.length===1?'property':'properties'}</span>
+      <span>Sorted by newest first</span>
+    </div>
+
+    ${filtered.length === 0 ? `
+      <div class="empty">
+        <div class="icon">🔍</div>
+        <h3 style="font-size:22px;">No properties match your filters</h3>
+        <p style="margin: 10px 0 18px;">Try adjusting the filters or browse all listings.</p>
+        <button class="btn btn-primary" onclick="resetFilter()">Reset filters</button>
+      </div>
+    ` : `
+      <div class="property-grid">
+        ${filtered.sort((a,b)=>b.listedAt-a.listedAt).map(propCard).join('')}
+      </div>
+    `}
+  </section>
+  `;
+}
+
+function applyFilters(list) {
+  return list.filter(p => {
+    if (STATE.filter.availability === 'available' && !p.available) return false;
+    if (STATE.filter.locality && p.locality !== STATE.filter.locality) return false;
+    if (STATE.filter.type && p.type !== STATE.filter.type) return false;
+    if (STATE.filter.forWhom && !p.forWhom.includes(STATE.filter.forWhom) && !p.forWhom.includes('Anyone')) return false;
+    if (STATE.filter.minRent && p.rent < +STATE.filter.minRent) return false;
+    if (STATE.filter.maxRent && p.rent > +STATE.filter.maxRent) return false;
+    if (STATE.filter.search) {
+      const s = STATE.filter.search.toLowerCase();
+      const hay = (p.title + ' ' + p.locality + ' ' + p.description + ' ' + p.type + ' ' + p.forWhom.join(' ')).toLowerCase();
+      if (!hay.includes(s)) return false;
+    }
+    return true;
+  });
+}
+
+let debounceTimer = null;
+function debouncedRender() { clearTimeout(debounceTimer); debounceTimer = setTimeout(render, 220); }
+function resetFilter() { STATE.filter = { locality: '', type: '', forWhom: '', minRent: '', maxRent: '', search: '', availability: 'available' }; render(); }
+function filterByLocality(loc) { STATE.filter.locality = loc; STATE.page = 'browse'; render(); }
+
+/* ==========================================================
+   PROPERTY CARD
+   ========================================================== */
+const TYPE_EMOJI = { 'PG':'🛏️','Flat':'🏠','Room':'🚪','Hostel':'🛏️','Independent House':'🏡','Apartment':'🏢','1RK':'🛏️','1BHK':'🏠','2BHK':'🏠','3BHK':'🏡' };
+
+function propCard(p) {
+  const owner = DB.users[p.ownerPhone];
+  const fav = (DB.session && DB.favorites[DB.session]?.includes(p.id)) ? '❤️' : '🤍';
+  const hasImage = p.images && p.images.length > 0;
+  return `
+    <div class="prop-card ${!p.available?'unavailable':''}" onclick="openDetail('${p.id}')">
+      <div class="prop-img" ${hasImage ? `style="background-image: url('${p.images[0]}');"` : ''}>
+        ${!hasImage ? `<div class="prop-img-placeholder">${TYPE_EMOJI[p.type]||'🏠'}</div>` : ''}
+        <span class="prop-tag">${p.type}</span>
+        <button class="prop-fav" onclick="event.stopPropagation(); toggleFav('${p.id}');">${fav}</button>
+        ${!p.available ? `<div class="prop-unavailable-overlay"><span>Not Available</span></div>` : ''}
+      </div>
+      <div class="prop-body">
+        <div class="prop-locality">📍 ${p.locality}</div>
+        <div class="prop-title">${p.title}</div>
+        <div class="prop-meta">
+          <span>👥 ${p.forWhom.slice(0,2).join(', ')}${p.forWhom.length>2?'…':''}</span>
+          ${p.video ? '<span>📹 Video</span>' : ''}
+          ${hasImage ? `<span>📸 ${p.images.length}</span>` : ''}
+        </div>
+        <div class="badges">
+          ${p.restrictions.slice(0,2).map(r => `<span class="badge">${r}</span>`).join('')}
+          ${p.amenities.includes('WiFi') ? '<span class="badge green">WiFi</span>' : ''}
+          ${p.amenities.includes('Food Included') ? '<span class="badge orange">Meals</span>' : ''}
+        </div>
+        <div class="prop-price">
+          <strong>₹${p.rent.toLocaleString('en-IN')}<span>/mo</span></strong>
+          <span style="font-size:12px; color:var(--muted);">${timeAgo(p.listedAt)}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function timeAgo(ts) {
+  const diff = Date.now() - ts;
+  const days = Math.floor(diff / 86400000);
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Yesterday';
+  if (days < 30) return `${days}d ago`;
+  return `${Math.floor(days/30)}mo ago`;
+}
+
+function toggleFav(pid) {
+  if (!DB.session) { openAuth(); return; }
+  if (!DB.favorites[DB.session]) DB.favorites[DB.session] = [];
+  const i = DB.favorites[DB.session].indexOf(pid);
+  if (i > -1) { DB.favorites[DB.session].splice(i,1); toast('Removed from saved'); }
+  else { DB.favorites[DB.session].push(pid); toast('Saved'); }
+  saveDB(DB); render();
+}
+
+/* ==========================================================
+   PROPERTY DETAIL
+   ========================================================== */
+function openDetail(pid) {
+  const p = DB.properties.find(x => x.id === pid);
+  if (!p) return;
+  p.views = (p.views || 0) + 1;
+  saveDB(DB);
+  STATE.page = 'detail'; STATE.detailId = pid;
+  render();
+}
+
+function renderDetail() {
+  const p = DB.properties.find(x => x.id === STATE.detailId);
+  if (!p) return renderBrowse();
+  const owner = DB.users[p.ownerPhone];
+  const hasImages = p.images && p.images.length > 0;
+
+  return `
+  <section class="section">
+    <a href="#" class="detail-back" onclick="route('browse'); return false;">← Back to browse</a>
+
+    <div style="background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm);">
+      <div class="detail-gallery">
+        ${[0,1,2,3,4].map(i => {
+          const img = p.images?.[i];
+          if (img) return `<div class="gal-img${i===0?' gal-main':''}" style="background-image: url('${img}');"></div>`;
+          const isVid = (i === 1 && p.video);
+          return `<div class="gal-img placeholder${i===0?' gal-main':''}${isVid?' video':''}">
+            <span style="font-size: ${i===0?'96px':'52px'};">${TYPE_EMOJI[p.type]||'🏠'}</span>
+          </div>`;
+        }).join('')}
+      </div>
+
+      <div class="detail-body">
+        <div class="detail-main">
+          <div class="loc">📍 ${p.locality} · ${p.type}</div>
+          <h2>${p.title}</h2>
+          <p style="color: var(--muted); margin-top: 6px;">${p.address}</p>
+
+          ${!p.available ? `<div style="margin-top: 14px; padding: 12px 16px; background: var(--red-soft); color: var(--red); border-radius: 10px; font-weight: 600; font-size: 14px;">⚠ This property is currently not available for rent</div>` : ''}
+
+          <div class="detail-info-grid">
+            <div class="info-cell"><label>Monthly Rent</label><strong>₹${p.rent.toLocaleString('en-IN')}</strong></div>
+            <div class="info-cell"><label>Security Deposit</label><strong>₹${p.deposit.toLocaleString('en-IN')}</strong></div>
+            <div class="info-cell"><label>Property Type</label><strong>${p.type}</strong></div>
+            <div class="info-cell"><label>Suitable For</label><strong>${p.forWhom.join(', ')}</strong></div>
+          </div>
+
+          <h3 style="font-size:22px; margin: 30px 0 12px;">About this property</h3>
+          <p style="color: var(--ink-soft);">${p.description}</p>
+
+          <h3 style="font-size:22px; margin: 30px 0 12px;">Amenities</h3>
+          <div class="badges" style="gap: 8px;">
+            ${p.amenities.length===0 ? '<p style="color: var(--muted);">No amenities listed</p>' :
+              p.amenities.map(a => `<span class="badge green" style="padding: 7px 13px; font-size: 13px;">✓ ${a}</span>`).join('')}
+          </div>
+
+          <h3 style="font-size:22px; margin: 30px 0 12px;">House rules</h3>
+          ${p.restrictions.length === 0 ? '<p style="color: var(--muted);">No specific restrictions mentioned.</p>' :
+            `<div class="badges" style="gap: 8px;">
+              ${p.restrictions.map(r => `<span class="badge orange" style="padding: 7px 13px; font-size: 13px;">⚠ ${r}</span>`).join('')}
+            </div>`}
+
+          <div style="margin-top: 36px; padding: 18px 22px; background: var(--bg-2); border-radius: 12px; font-size: 13px; color: var(--muted); display: flex; gap: 24px; flex-wrap: wrap;">
+            <span>👁 <strong style="color: var(--ink);">${p.views || 0}</strong> views</span>
+            <span>📅 Listed ${timeAgo(p.listedAt)}</span>
+            <span><span class="status-dot ${p.available?'green':'red'}"></span><strong style="color: var(--ink);">${p.available?'Available':'Not available'}</strong></span>
+          </div>
+        </div>
+
+        <aside class="detail-side">
+          <div class="price-big">₹${p.rent.toLocaleString('en-IN')}<span style="font-size:14px; color: var(--muted); font-weight: 500;"> /month</span></div>
+          <div style="color: var(--muted); font-size: 13px; margin-bottom: 22px;">+ ₹${p.deposit.toLocaleString('en-IN')} refundable deposit</div>
+
+          <div style="border-top: 1px solid var(--line); padding-top: 22px; margin-bottom: 22px;">
+            <div style="font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; font-weight: 700;">Listed by</div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="avatar" style="width:44px; height:44px; font-size:17px;">${owner.name.charAt(0)}</div>
+              <div>
+                <strong>${owner.name}</strong>
+                <div style="font-size: 12px; color: var(--muted);">Property Owner</div>
+              </div>
+            </div>
+          </div>
+
+          ${!p.available ? `
+            <button class="btn" style="background:var(--bg-3); color:var(--muted); width:100%; justify-content:center; padding:13px; cursor:not-allowed;" disabled>
+              Currently Unavailable
+            </button>
+          ` : DB.session ? `
+            <button class="btn btn-accent btn-block" onclick="contactOwner('${p.ownerPhone}')">📞 Call +91 ${maskPhone(p.ownerPhone)}</button>
+            <button class="btn btn-secondary btn-block" style="margin-top: 10px;" onclick="toggleFav('${p.id}')">
+              ${(DB.favorites[DB.session]?.includes(p.id)) ? '❤️ Saved' : '🤍 Save'}
+            </button>
+          ` : `
+            <button class="btn btn-accent btn-block" onclick="openAuth()">Login to contact owner</button>
+            <p style="font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center;">Phone shown only after login</p>
+          `}
+        </aside>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function maskPhone(p) { return p.slice(0,2) + ' ' + p.slice(2,7) + ' ' + p.slice(7); }
+function contactOwner(phone) { toast(`Owner: +91 ${maskPhone(phone)}`, 'success'); }
+
+/* ==========================================================
+   OWNER DASHBOARD
+   ========================================================== */
+function renderDashboard() {
+  if (!DB.session) { openAuth(); return ''; }
+  const u = DB.users[DB.session];
+  if (u.role !== 'owner') {
+    return `<section class="section">
+      <div class="empty">
+        <div class="icon">🔒</div>
+        <h3 style="font-size:22px;">This page is for property owners</h3>
+        <p style="margin: 10px 0 18px;">You are signed in as a Finder. To list properties, switch to Owner role.</p>
+        <button class="btn btn-primary" onclick="switchToOwner()">Switch to Owner</button>
+      </div>
+    </section>`;
+  }
+
+  const mine = DB.properties.filter(p => p.ownerPhone === DB.session);
+  const available = mine.filter(p => p.available);
+  const unavailable = mine.filter(p => !p.available);
+  const totalViews = mine.reduce((s,p) => s + (p.views||0), 0);
+
+  return `
+  <section class="section">
+    <div class="dash-head">
+      <div>
+        <h2 style="font-size: 38px;">My Listings</h2>
+        <p style="color: var(--muted); margin-top: 6px;">Welcome back, ${u.name}. Manage all your properties here.</p>
+      </div>
+      <button class="btn btn-accent btn-lg" onclick="openListProperty()">+ Add New Property</button>
+    </div>
+
+    <div class="dash-summary">
+      <div class="dash-stat"><span>Total listings</span><strong>${mine.length}</strong></div>
+      <div class="dash-stat"><span>Available now</span><strong style="color: var(--green);">${available.length}</strong></div>
+      <div class="dash-stat"><span>Rented out</span><strong style="color: var(--red);">${unavailable.length}</strong></div>
+      <div class="dash-stat"><span>Total views</span><strong>${totalViews}</strong></div>
+    </div>
+
+    ${unavailable.length > 0 ? `
+      <h3 style="font-size: 22px; margin: 30px 0 18px;">🟢 Mark as available again</h3>
+      <p style="color: var(--muted); margin-top: -10px; margin-bottom: 18px; font-size: 14px;">When this property is vacant again, click once to relist — no need to fill the form again.</p>
+      <div class="property-grid" style="margin-bottom: 40px;">
+        ${unavailable.map(p => renderOwnerCard(p)).join('')}
+      </div>
+    ` : ''}
+
+    ${available.length > 0 ? `
+      <h3 style="font-size: 22px; margin: 30px 0 18px;">📋 Currently listed</h3>
+      <div class="property-grid">
+        ${available.map(p => renderOwnerCard(p)).join('')}
+      </div>
+    ` : ''}
+
+    ${mine.length === 0 ? `
+      <div class="empty">
+        <div class="icon">🏠</div>
+        <h3 style="font-size:22px;">You haven't listed any properties yet</h3>
+        <p style="margin: 10px 0 18px;">Add your first property to start receiving enquiries from finders.</p>
+        <button class="btn btn-accent" onclick="openListProperty()">+ List a property</button>
+      </div>
+    ` : ''}
+  </section>
+  `;
+}
+
+function renderOwnerCard(p) {
+  const hasImage = p.images && p.images.length > 0;
+  return `
+    <div class="prop-card ${!p.available?'unavailable':''}">
+      <div class="prop-img" ${hasImage ? `style="background-image: url('${p.images[0]}');"` : ''} onclick="openDetail('${p.id}')">
+        ${!hasImage ? `<div class="prop-img-placeholder">${TYPE_EMOJI[p.type]||'🏠'}</div>` : ''}
+        <span class="prop-tag">${p.type}</span>
+        ${!p.available ? `<div class="prop-unavailable-overlay"><span>Not Available</span></div>` : ''}
+      </div>
+      <div class="prop-body">
+        <div class="prop-locality">📍 ${p.locality}</div>
+        <div class="prop-title">${p.title}</div>
+        <div class="prop-meta">
+          <span>👁 ${p.views||0} views</span>
+          <span>📅 ${timeAgo(p.listedAt)}</span>
+        </div>
+        <div class="prop-price">
+          <strong>₹${p.rent.toLocaleString('en-IN')}<span>/mo</span></strong>
+        </div>
+
+        <div class="availability-toggle">
+          <button class="${p.available?'active green':''}" onclick="setAvailability('${p.id}', true)">
+            ${p.available ? '✓ Available' : 'Mark Available'}
+          </button>
+          <button class="${!p.available?'active red':''}" onclick="setAvailability('${p.id}', false)">
+            ${!p.available ? '✓ Taken' : 'Mark Taken'}
+          </button>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-top: 12px;">
+          <button class="btn btn-ghost btn-sm" style="flex:1;" onclick="openDetail('${p.id}')">View</button>
+          <button class="btn btn-ghost btn-sm" style="flex:1;" onclick="editProperty('${p.id}')">✎ Edit</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteProperty('${p.id}')" title="Delete">🗑</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function setAvailability(pid, available) {
+  const p = DB.properties.find(p => p.id === pid);
+  if (!p) return;
+  p.available = available;
+  saveDB(DB);
+  toast(available ? '✓ Property is live again' : 'Marked as taken', 'success');
+  render();
+}
+
+function deleteProperty(pid) {
+  if (!confirm('Permanently delete this listing? This cannot be undone.')) return;
+  DB.properties = DB.properties.filter(p => p.id !== pid);
+  saveDB(DB); toast('Property deleted'); render();
+}
+
+function editProperty(pid) { STATE.editingId = pid; openListProperty(); }
+
+function switchToOwner() {
+  if (!DB.session) return;
+  DB.users[DB.session].role = 'owner';
+  saveDB(DB);
+  toast('Switched to Owner role', 'success');
+  route('dashboard');
+}
+
+/* ==========================================================
+   ADMIN PANEL  (only for ADMIN_PHONE)
+   ========================================================== */
+function renderAdmin() {
+  if (DB.session !== ADMIN_PHONE) return renderHome();
+  const users = Object.values(DB.users);
+  const owners = users.filter(u => u.role === 'owner');
+  const finders = users.filter(u => u.role === 'finder');
+  const totalViews = DB.properties.reduce((s,p) => s + (p.views||0), 0);
+  const available = DB.properties.filter(p => p.available).length;
+  const localCounts = {};
+  DB.properties.forEach(p => { localCounts[p.locality] = (localCounts[p.locality]||0) + 1; });
+  const sortedLocal = Object.entries(localCounts).sort((a,b)=>b[1]-a[1]);
+  const topProps = DB.properties.slice().sort((a,b)=>(b.views||0)-(a.views||0)).slice(0,5);
+
+  return `
+  <section class="section">
+    <div style="background: linear-gradient(135deg, var(--ink), #2a241d); color: white; padding: 32px; border-radius: var(--radius-lg); margin-bottom: 32px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--accent); border-radius: 50%; opacity: .15;"></div>
+      <div class="section-eyebrow" style="color: var(--accent-3); position: relative;">Owner-only zone</div>
+      <h2 style="font-size: 36px; color: white; position: relative;">Admin Panel</h2>
+      <p style="opacity: .8; margin-top: 8px; position: relative;">Full traffic and data overview. Only visible to you (${ADMIN_PHONE}).</p>
+    </div>
+
+    <h3 style="font-size: 22px; margin-bottom: 16px;">📊 Site overview</h3>
+    <div class="dash-summary">
+      <div class="dash-stat"><span>Total visits</span><strong>${DB.visits}</strong></div>
+      <div class="dash-stat"><span>Properties listed</span><strong>${DB.properties.length}</strong></div>
+      <div class="dash-stat"><span>Currently available</span><strong style="color: var(--green);">${available}</strong></div>
+      <div class="dash-stat"><span>Total property views</span><strong>${totalViews}</strong></div>
+      <div class="dash-stat"><span>Owners registered</span><strong>${owners.length}</strong></div>
+      <div class="dash-stat"><span>Finders registered</span><strong>${finders.length}</strong></div>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 36px 0 16px;">🏆 Most viewed properties</h3>
+    <div class="admin-table">
+      <table>
+        <thead><tr><th>Property</th><th>Locality</th><th>Type</th><th>Views</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody>
+          ${topProps.map(p => `
+            <tr>
+              <td><strong>${p.title}</strong></td>
+              <td>${p.locality}</td>
+              <td>${p.type}</td>
+              <td><strong>${p.views||0}</strong></td>
+              <td><span class="status-dot ${p.available?'green':'red'}"></span>${p.available?'Available':'Taken'}</td>
+              <td><button class="btn btn-ghost btn-sm" onclick="openDetail('${p.id}')">View</button></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 36px 0 16px;">📍 Properties by locality</h3>
+    <div class="admin-table">
+      <table>
+        <thead><tr><th>Locality</th><th>Total</th><th>Distribution</th></tr></thead>
+        <tbody>
+          ${sortedLocal.map(([loc, count]) => {
+            const pct = Math.round((count/DB.properties.length)*100);
+            return `<tr>
+              <td><strong>${loc}</strong></td>
+              <td><strong>${count}</strong> ${count===1?'property':'properties'}</td>
+              <td>
+                <div style="background: var(--bg-2); border-radius: 100px; height: 8px; max-width: 280px; overflow: hidden;">
+                  <div style="background: var(--accent); height: 100%; width: ${pct}%;"></div>
+                </div>
+              </td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 36px 0 16px;">👥 All registered users</h3>
+    <div class="admin-table">
+      <table>
+        <thead><tr><th>Name</th><th>Phone</th><th>Role</th><th>Joined</th><th>Properties</th></tr></thead>
+        <tbody>
+          ${users.map(u => {
+            const propCount = DB.properties.filter(p => p.ownerPhone === u.phone).length;
+            return `<tr>
+              <td><div style="display: flex; align-items: center; gap: 10px;"><div class="avatar">${u.name.charAt(0)}</div><strong>${u.name}</strong></div></td>
+              <td>+91 ${maskPhone(u.phone)}</td>
+              <td><span class="role-pill ${u.phone===ADMIN_PHONE?'admin':''}">${u.phone===ADMIN_PHONE?'Admin':u.role}</span></td>
+              <td>${new Date(u.createdAt).toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric'})}</td>
+              <td>${propCount}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size: 22px; margin: 36px 0 16px;">💾 Data backup & restore</h3>
+    <div style="background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px;">
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">
+        Right now your data is stored only in this browser. <strong>Back it up regularly</strong> to Google Drive or any cloud — that way you'll never lose listings. To make data sync across all devices for all users, upgrade to Firebase (see deployment guide).
+      </p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="btn btn-primary" onclick="exportData()">⬇ Export all data (.json)</button>
+        <label class="btn btn-ghost">
+          ⬆ Import data
+          <input type="file" accept=".json" style="display: none;" onchange="importData(event)" />
+        </label>
+        <button class="btn btn-danger" onclick="resetAll()">↻ Reset to fresh data</button>
+      </div>
+    </div>
+  </section>
+  `;
+}
+
+function exportData() {
+  const data = JSON.stringify(DB, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `rentalhome-bhopal-backup-${new Date().toISOString().split('T')[0]}.json`;
+  a.click(); URL.revokeObjectURL(url);
+  toast('✓ Backup downloaded — upload it to Google Drive', 'success');
+}
+
+function importData(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const imported = JSON.parse(ev.target.result);
+      if (!imported.users || !imported.properties) throw new Error('Invalid backup file');
+      if (!confirm('This will replace all current data. Continue?')) return;
+      DB = imported; saveDB(DB);
+      toast('✓ Data restored', 'success'); render();
+    } catch(err) { toast('Could not read file: ' + err.message, 'error'); }
+  };
+  reader.readAsText(file);
+}
+
+function resetAll() {
+  if (!confirm('Reset all data back to demo state? Your current listings and users will be lost.')) return;
+  DB = seedData(); saveDB(DB); toast('Reset complete'); render();
+}
+
+/* ==========================================================
+   MODALS
+   ========================================================== */
+function renderModal() {
+  const root = document.getElementById('modal-root');
+  if (!STATE.modal) { root.innerHTML = ''; return; }
+  if (STATE.modal === 'auth') root.innerHTML = authModal();
+  else if (STATE.modal === 'otp') root.innerHTML = otpModal();
+  else if (STATE.modal === 'name') root.innerHTML = nameModal();
+  else if (STATE.modal === 'list') root.innerHTML = listPropertyModal();
+}
+
+function closeModal() { STATE.modal = null; STATE.editingId = null; STATE.uploadedImages = []; render(); }
+
+function openAuth() { STATE.pendingRole = 'finder'; STATE.modal = 'auth'; render(); }
+function openAuthAs(role) { STATE.pendingRole = role; STATE.modal = 'auth'; render(); }
+
+function authModal() {
+  return `
+  <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+    <div class="modal">
+      <div class="modal-head">
+        <h2>Welcome to RentalHome</h2>
+        <button class="close-x" onclick="closeModal()">✕</button>
+      </div>
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">First, tell us who you are. You can switch roles later anytime.</p>
+
+      <div class="tabs">
+        <button class="tab ${STATE.pendingRole==='finder'?'active':''}" onclick="STATE.pendingRole='finder'; render();">🔍 I'm Looking</button>
+        <button class="tab ${STATE.pendingRole==='owner'?'active':''}" onclick="STATE.pendingRole='owner'; render();">🏠 I'm an Owner</button>
+      </div>
+
+      <div class="field">
+        <label>Phone number</label>
+        <div class="phone-input">
+          <span class="code">+91</span>
+          <input id="phone" type="tel" maxlength="10" placeholder="98765 43210" oninput="this.value=this.value.replace(/[^0-9]/g,'')" />
+        </div>
+      </div>
+
+      <button class="btn btn-accent btn-block" style="margin-top: 18px;" onclick="sendOtp()">Send OTP</button>
+      <p style="text-align: center; color: var(--muted); font-size: 12px; margin-top: 16px;">By continuing you agree to our terms. We'll send a 6-digit OTP to verify your phone.</p>
+    </div>
+  </div>`;
+}
+
+function sendOtp() {
+  const phone = document.getElementById('phone').value.trim();
+  if (phone.length !== 10) { toast('Enter a valid 10-digit phone number', 'error'); return; }
+  STATE.pendingPhone = phone;
+  STATE.generatedOtp = String(Math.floor(100000 + Math.random() * 900000));
+  STATE.modal = 'otp'; render();
+}
+
+function otpModal() {
+  return `
+  <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+    <div class="modal">
+      <div class="modal-head"><h2>Verify your phone</h2><button class="close-x" onclick="closeModal()">✕</button></div>
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 12px;">Enter the 6-digit OTP sent to <strong style="color:var(--ink);">+91 ${STATE.pendingPhone}</strong></p>
+      <div class="otp-hint">🧪 Demo OTP: <strong>${STATE.generatedOtp}</strong>&nbsp;&nbsp;(real SMS via Firebase in production)</div>
+      <div class="otp-row">
+        ${[0,1,2,3,4,5].map(i => `<input id="otp-${i}" maxlength="1" oninput="otpStep(${i})" onkeydown="if(event.key==='Backspace' && !this.value && ${i}>0) document.getElementById('otp-${i-1}').focus()" />`).join('')}
+      </div>
+      <button class="btn btn-accent btn-block" onclick="verifyOtp()">Verify & Continue</button>
+      <p style="text-align: center; margin-top: 14px; font-size: 13px;"><a href="#" onclick="STATE.modal='auth'; render(); return false;">← Change number</a></p>
+    </div>
+  </div>`;
+}
+
+function otpStep(i) {
+  const inp = document.getElementById('otp-'+i);
+  inp.value = inp.value.replace(/[^0-9]/g, '');
+  if (inp.value && i < 5) document.getElementById('otp-'+(i+1)).focus();
+}
+
+function verifyOtp() {
+  let otp = '';
+  for (let i=0;i<6;i++) otp += document.getElementById('otp-'+i).value;
+  if (otp !== STATE.generatedOtp) { toast('Incorrect OTP. Try the one shown above.', 'error'); return; }
+  if (DB.users[STATE.pendingPhone]) {
+    DB.session = STATE.pendingPhone;
+    DB.users[DB.session].role = STATE.pendingRole;
+    saveDB(DB); STATE.modal = null;
+    const isAdmin = DB.session === ADMIN_PHONE;
+    toast(`Welcome back, ${DB.users[DB.session].name}!${isAdmin ? ' (Admin)' : ''}`, 'success');
+    render();
+  } else {
+    STATE.modal = 'name'; render();
+  }
+}
+
+function nameModal() {
+  return `
+  <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+    <div class="modal">
+      <div class="modal-head"><h2>One last thing</h2><button class="close-x" onclick="closeModal()">✕</button></div>
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 18px;">What should we call you?</p>
+      <div class="field">
+        <label>Your name</label>
+        <input id="name-input" type="text" placeholder="e.g. Ananya Sharma" />
+      </div>
+      <button class="btn btn-accent btn-block" style="margin-top: 18px;" onclick="finishSignup()">Create my account</button>
+    </div>
+  </div>`;
+}
+
+function finishSignup() {
+  const name = document.getElementById('name-input').value.trim();
+  if (!name) { toast('Please enter your name', 'error'); return; }
+  DB.users[STATE.pendingPhone] = { phone: STATE.pendingPhone, name, role: STATE.pendingRole, createdAt: Date.now() };
+  DB.session = STATE.pendingPhone;
+  saveDB(DB); STATE.modal = null;
+  toast(`Welcome to RentalHome, ${name}!`, 'success');
+  render();
+}
+
+function logout() {
+  DB.session = null; saveDB(DB);
+  toast('Logged out');
+  STATE.page = 'home'; render();
+}
+
+/* ==========================================================
+   LIST PROPERTY (with real image upload)
+   ========================================================== */
+function openListProperty() {
+  if (!DB.session) { openAuthAs('owner'); return; }
+  if (DB.users[DB.session].role !== 'owner') {
+    if (confirm('Listing a property requires an Owner account. Switch your role to Owner?')) {
+      DB.users[DB.session].role = 'owner'; saveDB(DB);
+    } else return;
+  }
+  if (STATE.editingId) {
+    const p = DB.properties.find(p => p.id === STATE.editingId);
+    STATE.uploadedImages = p ? [...(p.images||[])] : [];
+  } else {
+    STATE.uploadedImages = [];
+  }
+  STATE.modal = 'list'; render();
+}
+
+function listPropertyModal() {
+  const editing = STATE.editingId ? DB.properties.find(p => p.id === STATE.editingId) : null;
+  const def = editing || { title:'', type:'PG', locality:'Saket Nagar', address:'', rent:'', deposit:'', forWhom:[], restrictions:[], amenities:[], description:'', video:false, available:true };
+
+  return `
+  <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+    <div class="modal wide">
+      <div class="modal-head">
+        <h2>${editing ? 'Edit property' : 'List a new property'}</h2>
+        <button class="close-x" onclick="closeModal()">✕</button>
+      </div>
+      <p style="color: var(--muted); font-size: 14px; margin-bottom: 22px;">Fill in the details below. Honest listings get the best tenants.</p>
+
+      <div class="field" style="margin-bottom: 14px;">
+        <label>Property Title</label>
+        <input id="l-title" placeholder="e.g. 2BHK Furnished near AIIMS Bhopal" value="${def.title}" />
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 14px;">
+        <div class="field">
+          <label>Property Type</label>
+          <select id="l-type">${PROPERTY_TYPES.map(t => `<option ${def.type===t?'selected':''}>${t}</option>`).join('')}</select>
+        </div>
+        <div class="field">
+          <label>Locality</label>
+          <select id="l-locality">${LOCALITIES.map(l => `<option ${def.locality===l?'selected':''}>${l}</option>`).join('')}</select>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom: 14px;">
+        <label>Full Address</label>
+        <input id="l-address" placeholder="House no., street, landmark" value="${def.address}" />
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <div class="field"><label>Monthly Rent (₹)</label><input id="l-rent" type="number" placeholder="e.g. 12000" value="${def.rent}" /></div>
+        <div class="field"><label>Security Deposit (₹)</label><input id="l-deposit" type="number" placeholder="e.g. 24000" value="${def.deposit}" /></div>
+      </div>
+
+      <div class="field" style="margin-bottom: 18px;">
+        <label>Suitable for (select all that apply)</label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 4px; padding: 12px; background: var(--bg-2); border-radius: 10px;">
+          ${TENANT_TYPES.map(t => `<label class="check-row"><input type="checkbox" class="l-forwhom" value="${t}" ${def.forWhom.includes(t)?'checked':''} /> ${t}</label>`).join('')}
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom: 18px;">
+        <label>Restrictions / House rules</label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 4px; padding: 12px; background: var(--bg-2); border-radius: 10px;">
+          ${RESTRICTIONS.map(t => `<label class="check-row"><input type="checkbox" class="l-restriction" value="${t}" ${def.restrictions.includes(t)?'checked':''} /> ${t}</label>`).join('')}
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom: 18px;">
+        <label>Amenities</label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px; padding: 12px; background: var(--bg-2); border-radius: 10px;">
+          ${AMENITIES.map(t => `<label class="check-row"><input type="checkbox" class="l-amenity" value="${t}" ${def.amenities.includes(t)?'checked':''} /> ${t}</label>`).join('')}
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom: 18px;">
+        <label>Description</label>
+        <textarea id="l-desc" placeholder="Tell finders what makes your property special — location perks, floor, view, neighbours, public transport, anything they should know.">${def.description}</textarea>
+      </div>
+
+      <div class="field" style="margin-bottom: 18px;">
+        <label>Property Photos (up to 8)</label>
+        <label class="upload-zone">
+          <strong>📸 Click to upload photos</strong>
+          Supports JPG, PNG · Max 8 images
+          <input type="file" multiple accept="image/*" style="display:none" onchange="handleImageUpload(event)" />
+        </label>
+        <div class="img-preview-grid" id="img-preview">
+          ${STATE.uploadedImages.map((src, i) => `
+            <div class="img-preview" style="background-image: url('${src}');">
+              <button class="remove" onclick="removeImage(${i})">✕</button>
+            </div>
+          `).join('')}
+        </div>
+        <label class="check-row" style="margin-top: 12px;">
+          <input type="checkbox" id="l-video" ${def.video?'checked':''} /> I have a property walk-through video to share
+        </label>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-ghost" style="flex:1;" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-accent" style="flex:2;" onclick="saveProperty()">${editing ? 'Save Changes' : 'Publish Listing'}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function handleImageUpload(e) {
+  const files = Array.from(e.target.files).slice(0, 8 - STATE.uploadedImages.length);
+  if (files.length === 0) { toast('Maximum 8 images', 'error'); return; }
+
+  files.forEach(file => {
+    if (file.size > 3 * 1024 * 1024) { toast(`${file.name} is too large (max 3MB)`, 'error'); return; }
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      // Resize image via canvas for storage efficiency
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const maxW = 1200; const scale = Math.min(1, maxW / img.width);
+        canvas.width = img.width * scale; canvas.height = img.height * scale;
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        STATE.uploadedImages.push(canvas.toDataURL('image/jpeg', 0.78));
+        // re-render only the preview
+        document.getElementById('img-preview').innerHTML = STATE.uploadedImages.map((src, i) => `
+          <div class="img-preview" style="background-image: url('${src}');">
+            <button class="remove" onclick="removeImage(${i})">✕</button>
+          </div>`).join('');
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function removeImage(i) {
+  STATE.uploadedImages.splice(i, 1);
+  document.getElementById('img-preview').innerHTML = STATE.uploadedImages.map((src, i) => `
+    <div class="img-preview" style="background-image: url('${src}');">
+      <button class="remove" onclick="removeImage(${i})">✕</button>
+    </div>`).join('');
+}
+
+function saveProperty() {
+  const title = document.getElementById('l-title').value.trim();
+  const type = document.getElementById('l-type').value;
+  const locality = document.getElementById('l-locality').value;
+  const address = document.getElementById('l-address').value.trim();
+  const rent = +document.getElementById('l-rent').value;
+  const deposit = +document.getElementById('l-deposit').value;
+  const description = document.getElementById('l-desc').value.trim();
+  const video = document.getElementById('l-video').checked;
+  const forWhom = Array.from(document.querySelectorAll('.l-forwhom:checked')).map(c => c.value);
+  const restrictions = Array.from(document.querySelectorAll('.l-restriction:checked')).map(c => c.value);
+  const amenities = Array.from(document.querySelectorAll('.l-amenity:checked')).map(c => c.value);
+
+  if (!title) { toast('Please enter a property title', 'error'); return; }
+  if (!address) { toast('Please enter the address', 'error'); return; }
+  if (!rent || rent < 500) { toast('Please enter a valid rent', 'error'); return; }
+  if (forWhom.length === 0) { toast('Please select who this property is suitable for', 'error'); return; }
+
+  if (STATE.editingId) {
+    const p = DB.properties.find(p => p.id === STATE.editingId);
+    Object.assign(p, { title, type, locality, address, rent, deposit, forWhom, restrictions, amenities, description, video, images: [...STATE.uploadedImages] });
+    toast('✓ Property updated', 'success');
+  } else {
+    DB.properties.push({
+      id: 'p' + Date.now(), ownerPhone: DB.session,
+      title, type, locality, address, rent, deposit: deposit||rent*2,
+      forWhom, restrictions, amenities, description, video,
+      images: [...STATE.uploadedImages], available: true,
+      listedAt: Date.now(), views: 0
+    });
+    toast('🎉 Your property is now live!', 'success');
+  }
+  saveDB(DB);
+  STATE.modal = null; STATE.editingId = null; STATE.uploadedImages = [];
+  STATE.page = 'dashboard';
+  render();
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+function toast(msg, type = '') {
+  const root = document.getElementById('toast-root');
+  root.innerHTML = `<div class="toast ${type}">${msg}</div>`;
+  setTimeout(() => { root.innerHTML = ''; }, 2600);
+}
+
+/* ==========================================================
+   INIT
+   ========================================================== */
+render();
+</script>
+</body>
+</html>
